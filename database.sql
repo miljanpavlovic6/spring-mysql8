@@ -37,16 +37,13 @@ VALUES(3,'125yhy',1,'Raze_the_Roof', 'I dont think robots will ever be able to a
 commit;
 
 --creating user for mysql 8
-
-
-CREATE USER 'instana'@'localhost' IDENTIFIED BY 'yNewPass4!';
+--log in with
+CREATE USER 'instana'@'localhost' IDENTIFIED BY 'MyNewPass4!';
 GRANT ALL PRIVILEGES ON * . * TO 'instana'@'localhost';
 FLUSH PRIVILEGES;
 
-
-ALTER USER 'instana'@'localhost' IDENTIFIED WITH mysql_native_password BY 'yNewPass4!';
+ALTER USER 'instana'@'localhost' IDENTIFIED WITH mysql_native_password BY 'MyNewPass4';
 FLUSH PRIVILEGES;
-
 
 GRANT PROCESS ON *.* TO 'instana'@'localhost';
 GRANT SELECT ON PERFORMANCE_SCHEMA.* TO 'instana'@'localhost';
