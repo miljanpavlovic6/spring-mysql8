@@ -134,7 +134,7 @@ esac
 chmod +x /etc/init.d/springapp
 service springapp start
 ```
-## Install instana agent
+## [Install instana agent](https://www.ibm.com/docs/en/instana-observability/current?topic=agents-installing-host-agent-linux#installing-the-host-agent-on-linux)
 ```
 mkdir /opt/instana/agent/deploy
 cd /opt/instana/agent/deploy
