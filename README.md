@@ -17,22 +17,26 @@ systemctl start mysqld
 systemctl status mysqld
 sudo grep 'temporary password' /var/log/mysqld.log
 mysql -uroot -p
-ALTER USER 'root'@'localhost' IDENTIFIED BY 'MyNewPass4!';
+ALTER USER 'root'@'%' IDENTIFIED BY 'MyNewPass4!';
 ```
 ### Create instana user and add privileges from [instana documentation](https://www.ibm.com/docs/en/instana-observability/current?topic=technologies-monitoring-mysql#required-db-permissions).
 ```
-CREATE USER 'instana'@'localhost' IDENTIFIED BY 'MyNewPass4!';
-GRANT ALL PRIVILEGES ON * . * TO 'instana'@'localhost';
+CREATE USER 'instana'@'%' IDENTIFIED BY 'MyNewPass4!';
+GRANT ALL PRIVILEGES ON * . * TO 'instana'@'%';
 FLUSH PRIVILEGES;
-ALTER USER 'instana'@'localhost' IDENTIFIED WITH mysql_native_password BY 'MyNewPass4!';
+ALTER USER 'instana'@'%' IDENTIFIED WITH mysql_native_password BY 'MyNewPass4!';
 FLUSH PRIVILEGES;
-GRANT PROCESS ON *.* TO 'instana'@'localhost';
-GRANT SELECT ON PERFORMANCE_SCHEMA.* TO 'instana'@'localhost';
-GRANT REPLICATION CLIENT ON *.* TO 'instana'@'localhost';
-GRANT SELECT ON performance_schema.events_waits_summary_global_by_event_name TO 'instana'@'localhost';
-GRANT SELECT ON performance_schema.events_statements_summary_by_digest TO 'instana'@'localhost';
-GRANT SELECT ON performance_schema.events_statements_summary_global_by_event_name TO 'instana'@'localhost';
-GRANT SELECT ON performance_schema.replication_connection_status TO 'instana'@'localhost';
+GRANT PROCESS ON *.* TO 'instana'@'%';
+GRANT SELECT ON PERFORMANCE_SCHEMA.* TO 'instana'@'%';
+GRANT REPLICATION CLIENT ON *.* TO 'instana'@'%';
+GRANT SELECT ON performance_schema.events_waits_summary_global_by_event_name TO 'instana'@'%';
+GRANT SELECT ON performance_schema.events_statements_summary_by_digest TO 'instana'@'%';
+GRANT SELECT ON performance_schema.events_statements_summary_global_by_event_name TO 'instana'@'%';
+GRANT SELECT ON performance_schema.replication_connection_status TO 'instana'@'%';
+FLUSH PRIVILEGES;
+
+CREATE USER 'root'@'%' IDENTIFIED BY 'MyNewPass4!';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 
 quit;
