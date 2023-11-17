@@ -136,6 +136,8 @@ esac
 ```
 ```
 chmod +x /etc/init.d/springapp
+cat /etc/hosts
+export HOST_IP_ADDRESS=<Ip address from the hosts file # Added by Google or if you want to test on your local pc/mac =localhost>
 service springapp start
 ```
 ## [Install instana agent](https://www.ibm.com/docs/en/instana-observability/current?topic=agents-installing-host-agent-linux#installing-the-host-agent-on-linux)
