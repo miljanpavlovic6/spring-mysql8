@@ -85,7 +85,11 @@ INSERT INTO `development`.`achievement`(`id`,`achievementid`,`game_id`, `display
 VALUES(3,'444',3,'Raze_the_Roof', 'I dont think robots will ever be able to automate achievement names, which is kind of weird because robots are able to automate a lot of other things that seem much more difficult.','www.gom.com',3, '2008-7-04','2008-7-04');
 ```
 ## Springboot app
-> Modify the SERVICE_NAME, PATH_TO_JAR, and choose a PID_PATH_NAME for the file you are going to use to store your service ID.
+>1. Quick start
+```
+nohup java -jar /home/miljan_pavlovic/spring-mysql8/app-0.0.1.jar &
+```
+>2. Or modify the SERVICE_NAME, PATH_TO_JAR, and choose a PID_PATH_NAME for the file you are going to use to store your service ID.
 ```
 sudo vi /etc/init.d/springapp
 ```
